@@ -46,7 +46,7 @@ esp_err_t iot_ulp_monitor_init(uint16_t program_addr, uint16_t data_addr);
   *     - ESP_OK: succeed
   *     - others: fail
   */
-esp_err_t iot_ulp_add_adc_monitor(adc1_channel_t adc_chn, int16_t low_threshold, int16_t high_threshold, uint8_t data_offset, uint8_t data_num, bool num_max_wake);
+esp_err_t iot_ulp_add_adc_monitor(adc1_channel_t adc_chn, int16_t low_threshold, int16_t high_threshold, uint16_t data_offset, uint16_t data_num, bool num_max_wake);
 
 /**
   * @brief  read temprature sensor in ulp
@@ -61,7 +61,7 @@ esp_err_t iot_ulp_add_adc_monitor(adc1_channel_t adc_chn, int16_t low_threshold,
   *     - ESP_OK: succeed
   *     - others: fail
   */
-esp_err_t iot_ulp_add_temprature_monitor(int16_t low_threshold, int16_t high_threshold, uint8_t data_offset, uint8_t data_num, bool num_max_wake);
+esp_err_t iot_ulp_add_temprature_monitor(int16_t low_threshold, int16_t high_threshold, uint16_t data_offset, uint16_t data_num, bool num_max_wake);
 
 /**
   * @brief  start running the ulp program
