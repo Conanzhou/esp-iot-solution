@@ -49,7 +49,7 @@ static esp_err_t ulp_add_subprogram(const ulp_insn_t sub_program[], size_t sub_p
     return ESP_OK;
 }
 
-static esp_err_t ulp_add_monitor_program(ulp_insn_t read_reg_inst, int16_t low_threshold, int16_t high_threshold, uint8_t data_offset, uint8_t data_num, bool num_max_wake)
+static esp_err_t ulp_add_monitor_program(ulp_insn_t read_reg_inst, int16_t low_threshold, int16_t high_threshold, uint16_t data_offset, uint16_t data_num, bool num_max_wake)
 {
     const ulp_insn_t sub_program[] = {
         I_MOVI(R2, g_data_addr + data_offset),
@@ -119,7 +119,7 @@ esp_err_t iot_ulp_monitor_init(uint16_t program_addr, uint16_t data_addr)
     return ESP_OK;
 }
 
-esp_err_t iot_ulp_add_adc_monitor(adc1_channel_t adc_chn, int16_t low_threshold, int16_t high_threshold, uint8_t data_offset, uint8_t data_num, bool num_max_wake)
+esp_err_t iot_ulp_add_adc_monitor(adc1_channel_t adc_chn, int16_t low_threshold, int16_t high_threshold, uint16_t data_offset, uint16_t data_num, bool num_max_wake)
 {
     if ((g_data_addr + data_offset + data_num + 2) > ULP_DATA_ADDR_LIMI) {
         ESP_LOGE(TAG, "data_offset or data_num is to large");
@@ -142,7 +142,7 @@ esp_err_t iot_ulp_add_adc_monitor(adc1_channel_t adc_chn, int16_t low_threshold,
     return ESP_OK;
 }
 
-esp_err_t iot_ulp_add_temprature_monitor(int16_t low_threshold, int16_t high_threshold, uint8_t data_offset, uint8_t data_num, bool num_max_wake)
+esp_err_t iot_ulp_add_temprature_monitor(int16_t low_threshold, int16_t high_threshold, uint16_t data_offset, uint16_t data_num, bool num_max_wake)
 {
     if ((g_data_addr + data_offset + data_num + 2) > ULP_DATA_ADDR_LIMI) {
         ESP_LOGE(TAG, "data_offset or data_num is to large");
